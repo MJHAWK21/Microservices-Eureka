@@ -18,12 +18,14 @@ public class UserService {
         return repo.save(user);
     }
 
-    public ResponseTemplateVO getUserwithdepartment(Long userId) {
+    public ResponseTemplateVO getUserWithdepartment(Long userId) {
         ResponseTemplateVO vo= new ResponseTemplateVO();
         User user=repo.findByUserId(userId);
-        Department department=restTemplate.getForObject("http://DEPARTMENT_SERVICE/department/"+user.getDepartmentId(),Department.class);
+        Department department=restTemplate.getForObject("http://DEPARTMENT-SERVICE/department/"+user.getDepartmentId(),Department.class);
         vo.setUser(user);
         vo.setDepartment(department);
         return vo;
     }
+
+
 }

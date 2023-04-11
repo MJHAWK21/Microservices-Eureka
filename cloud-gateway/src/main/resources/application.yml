@@ -18,7 +18,7 @@ spring:
         - id: DEPARTMENT-SERVICE
           uri: lb://DEPARTMENT-SERVICE
           predicates:
-            - Path=/departments/**
+            - Path=/department/**
           filters:
             - name: CircuitBreaker
               args:
